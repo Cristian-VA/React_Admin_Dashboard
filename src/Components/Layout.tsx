@@ -7,8 +7,8 @@ import SideMenu from './SideMenu'
 
 const StyledMain = styled.main`
  font-family: "Inter" , sans-serif;
- background: red;
- color: blue;
+ background: #fafafa;
+ color: #0f172a;
 
 
 
@@ -20,12 +20,15 @@ const Container = styled.div`
 const ContentContainer = styled.div`
     padding: 5px 20px;
     width: 100%;
+    background: #f4f4f5;
 `
 
 const MenuContainer = styled.div`
  width: 250px;
- padding: 5px;
+ padding: 0px;
  border-right: 2px green solid;
+ background: #3f3f46;
+ color: #fafafa;
 `
 
 export default function Layout() {
