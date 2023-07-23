@@ -2,6 +2,7 @@ import React from 'react'
 import {FaUserAlt, FaHome, FaShoppingCart, FaClipboardList, FaPenSquare, FaBorderAll, FaStickyNote, FaWpforms, FaCalendarAlt, FaServer, } from "react-icons/fa";
 import { FaGear, FaChartSimple, FaPen } from "react-icons/fa6"
 import styled from "styled-components"
+import { NavLink } from 'react-router-dom';
 
 const SideMenuEl = styled.div`
 padding: 0px;
@@ -13,6 +14,8 @@ const TitleDiv = styled.div`
  font-weight: 600;
 `
 
+const notActive = "flex px-5 py-3 text-zinc-400 text-sm  gap-2 transition hover:bg-zinc-800 cursor-pointer"
+const active = "bg-zinc-800 flex px-5 py-3 text-zinc-400 text-sm  gap-2 transition cursor-pointer"
 
 export default function SideMenu() {
   return (
@@ -22,10 +25,13 @@ export default function SideMenu() {
       <h1>Main</h1>
     </TitleDiv>
 
-    <div className='flex px-5 py-3 text-zinc-400 text-sm  gap-2 transition hover:bg-zinc-800 cursor-pointer'>
+    <NavLink to="/"
+    className= {({isActive}) => isActive ? active : notActive }>
       <FaHome className="my-auto w-5 h-5"/>
       <h1 className='my-auto'> Home</h1>
-    </div>
+    </NavLink>
+
+ 
 
     <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
       <FaUserAlt className="my-auto w-5 h-5"/>
@@ -36,15 +42,17 @@ export default function SideMenu() {
       <h1>Lists</h1>
     </TitleDiv>
 
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaUserAlt className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Users</h1>
-          </div>
+          <NavLink to="/users"
+           className= {({isActive}) => isActive ? active : notActive }>      
+                <FaUserAlt className="my-auto w-5 h-5"/>
+                <h1 className='my-auto'> Users</h1> 
+          </NavLink>
 
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaShoppingCart className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Products</h1>
-          </div>
+          <NavLink to="/products"
+           className= {({isActive}) => isActive ? active : notActive }>
+                <FaShoppingCart className="my-auto w-5 h-5"/>
+                <h1 className='my-auto'> Products</h1>
+          </NavLink>
 
           <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
             <FaClipboardList className="my-auto w-5 h-5"/>

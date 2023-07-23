@@ -20,7 +20,8 @@ const Container = styled.div`
 const ContentContainer = styled.div`
     padding: 5px 20px;
     width: 100%;
-    background: #f4f4f5;
+    background: #f2f2f3;
+    margin: auto 0;
 `
 
 const MenuContainer = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react'
 import {FaSearch, FaBell, FaSignOutAlt} from "react-icons/fa";
-import { FaGear } from "react-icons/fa6";
+
 import styled from "styled-components"
 
 const StyledNav = styled.div`
