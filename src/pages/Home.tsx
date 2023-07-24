@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
+import UserBox from '../Components/UserBox'
+import Chart from '../Components/Chart'
+
+
 
 const HomeStyle = styled.div`
 display: grid;
@@ -22,15 +26,19 @@ const Box9 = styled.div`
  grid-row: span 2;
 `
 
+
 export default function Home() {
   return (
     <HomeStyle>
 
-      <div className='p-4 rounded-lg bg-red-300 shadow-md'> Box1</div>
-      <div className='p-4 rounded-lg bg-orange-300 shadow-md'> Box2</div>
-      <div className='p-4 rounded-lg bg-blue-300 shadow-md'> Box3</div>
-      <div className='p-4 rounded-lg bg-green-300 shadow-md'> Box4</div>
-      <Box5 className='p-4 rounded-lg bg-white shadow-md'> Box5</Box5>
+      <div className='p-4 rounded-lg bg-red-300 shadow-md'> <Chart color="red"/></div>
+      <div className='p-4 rounded-lg bg-orange-300 shadow-md'> <Chart color ="orange"/></div>
+      <div className='p-4 rounded-lg bg-blue-300 shadow-md'>   <Chart color= "sky"/></div>
+      <div className='p-4 rounded-lg bg-emerald-300 shadow-md'>  <Chart color = "emerald"/></div>
+      <Box5 className='p-4 rounded-lg bg-white shadow-md'> 
+         <UserBox/>
+      </Box5>
+
       <div className='p-4 rounded-lg bg-white shadow-md'> Box6</div>
       <div className='p-4 rounded-lg bg-white shadow-md'> Box7</div>
       <Box8 className='p-4 rounded-lg bg-white shadow-md'> Box8</Box8>
