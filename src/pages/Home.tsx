@@ -2,8 +2,9 @@ import React from 'react'
 import styled from "styled-components"
 import UserBox from '../Components/UserBox'
 import Chart from '../Components/Chart'
-
-
+import BarChartContainer from '../Components/BarChartContainer'
+import PieCahtContainer from '../Components/PieChartContainer'
+import BigChartContainer from '../Components/BigChartContainer'
 
 const HomeStyle = styled.div`
 display: grid;
@@ -27,23 +28,148 @@ const Box9 = styled.div`
 `
 
 
+const chartDataUsers = [
+  {name:"Sun", Users: 300},
+  {name:"Mon", Users: 400},
+  {name:"Tue", Users: 500},
+  {name:"Wed", Users: 200},
+  {name:"Thu", Users: 400},
+  {name:"Fri", Users: 200},
+  {name:"Sat", Users: 600},
+]
+
+const chartDataRevenue = [
+  {name:"Sun", $: 1100},
+  {name:"Mon", $: 1340},
+  {name:"Tue", $: 2300},
+  {name:"Wed", $: 5600},
+  {name:"Thu", $: 3100},
+  {name:"Fri", $: 2100},
+  {name:"Sat", $: 4500},
+]
+
+const chartDataProducts = [
+  {name:"Sun", Products: 60},
+  {name:"Mon", Products: 90},
+  {name:"Tue", Products: 80},
+  {name:"Wed", Products: 76},
+  {name:"Thu", Products: 130},
+  {name:"Fri", Products: 140},
+  {name:"Sat", Products: 120},
+]
+
+const chartDataRatio = [
+  {name:"Sun", Ratio: 1.1},
+  {name:"Mon", Ratio: 1.3},
+  {name:"Tue", Ratio: 1.7},
+  {name:"Wed", Ratio: 1.3},
+  {name:"Thu", Ratio: 2.0},
+  {name:"Fri", Ratio: 1.2},
+  {name:"Sat", Ratio: 1.6},
+]
+
+const BarDataVisits = [
+  {name:"Sun", Visits: 30},
+  {name:"Mon", Visits: 44},
+  {name:"Tue", Visits: 55},
+  {name:"Wed", Visits: 69},
+  {name:"Thu", Visits: 60},
+  {name:"Fri", Visits: 79},
+  {name:"Sat", Visits: 70},
+]
+
+const BarDataProfits = [
+  {name:"Sun", Profit: 1100},
+  {name:"Mon", Profit: 2000},
+  {name:"Tue", Profit: 3000},
+  {name:"Wed", Profit: 2800},
+  {name:"Thu", Profit: 3100},
+  {name:"Fri", Profit: 3600},
+  {name:"Sat", Profit: 3500},
+]
+
+
 export default function Home() {
   return (
     <HomeStyle>
 
-      <div className='p-4 rounded-lg bg-red-300 shadow-md'> <Chart color="red"/></div>
-      <div className='p-4 rounded-lg bg-orange-300 shadow-md'> <Chart color ="orange"/></div>
-      <div className='p-4 rounded-lg bg-blue-300 shadow-md'>   <Chart color= "sky"/></div>
-      <div className='p-4 rounded-lg bg-emerald-300 shadow-md'>  <Chart color = "emerald"/></div>
+      <div className='p-4 rounded-lg bg-red-300 shadow-md'> 
+         <Chart color="red" 
+         iconDisplayed="FaUsers"
+         title = "Users Online"
+         value = "7,312"
+         percentage= "47"
+         dataKey= "Users"
+         chartData= {chartDataUsers}
+         />
+      </div>
+
+      <div className='p-4 rounded-lg bg-orange-300 shadow-md'>
+         <Chart color="orange" 
+         iconDisplayed="FaCashRegister"
+         title = "Revenue"
+         value = "$44,291"
+         percentage= "32"
+         dataKey="$"
+         chartData= {chartDataRevenue}
+         
+         />
+      </div>
+
+      <div className='p-4 rounded-lg bg-blue-300 shadow-md'>  
+        <Chart color="blue" 
+        iconDisplayed="FaShoppingBag"
+        title = "Total Products"
+        value = "186"
+        percentage= "21"
+        dataKey="Products"
+        chartData= {chartDataProducts}
+        />
+      </div>
+
+      <div className='p-4 rounded-lg bg-emerald-300 shadow-md'>  
+        <Chart color="green" 
+        iconDisplayed="FaPercentage"
+        title = "Ratio"
+        value = "2.1"
+        percentage= "11"
+        dataKey="Ratio"
+        chartData= {chartDataRatio}
+        />
+      </div>
+
       <Box5 className='p-4 rounded-lg bg-white shadow-md'> 
          <UserBox/>
       </Box5>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'> Box6</div>
-      <div className='p-4 rounded-lg bg-white shadow-md'> Box7</div>
-      <Box8 className='p-4 rounded-lg bg-white shadow-md'> Box8</Box8>
-      <Box9 className='p-4 rounded-lg bg-white shadow-md'> Box9</Box9>
+      <div className='p-4 rounded-lg bg-white shadow-md'> 
+      <BarChartContainer
+      title = "Visits per Day (Last Week)"
+      fill = "#6ee7b7"
+      dataKey = "Visits"
+      chartData= {BarDataVisits}
+      />
+      </div>
+
+    <div className='p-4 rounded-lg bg-white shadow-md'>
+    <BarChartContainer
+    title = "Profit earned (Per Month)"
+    fill = "#a5b4fc"
+    dataKey = "Profit"
+    chartData= {BarDataProfits}
+    />
+    </div>
+
+      <Box8 className='p-4 rounded-lg bg-white shadow-md'> 
+       <PieCahtContainer/>
+      </Box8>
+
+      <Box9 className='p-4 rounded-lg bg-white shadow-md'> 
+      <BigChartContainer/>
+      </Box9>
 
     </HomeStyle>
   )
 }
+
+//FaUsers, FaCashRegister, FaShoppingBag, FaPercentage

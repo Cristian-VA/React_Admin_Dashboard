@@ -47,7 +47,7 @@ const data = [
 
 const mapData = data.map(item => {
     return (
-        <div className='pl-5 pr-2 flex justify-between my-8'>
+        <div key={item.id} className='pl-5 pr-2 flex justify-between my-8'>
         <div className='flex gap-4'>
              <img className='rounded-full w-14 h-14' src={item.img} alt="" />
             

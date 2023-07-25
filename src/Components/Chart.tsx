@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
-import {FaUsers} from "react-icons/fa"
+import {FaUsers, FaCashRegister, FaShoppingBag, FaPercentage} from "react-icons/fa"
 import {Link} from "react-router-dom"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line,  Tooltip, ResponsiveContainer } from 'recharts';
 const BoxContainer = styled.div`
  padding: 0.3em;
  display: flex;
@@ -11,7 +11,37 @@ const BoxContainer = styled.div`
  height: 150px
 `
 
+//const displayedIcon = 
+
 const ChartBox = styled.div`
+${({color})=>{
+  
+  if(color==="red"){
+    return (
+      `
+      color: #7f1d1d;
+      `
+    )
+  } else if( color === "orange"){
+    return (
+      `
+      color: #7c2d12;
+      `
+    )
+  }else if( color === "blue"){
+    return (
+      `
+      color: #0c4a6e;
+      `
+    )
+  }else if( color === "green"){
+    return (
+      `
+      color: #064e3b;
+      `
+    )
+  }
+}};
 display: flex;
 justify-content: space-between;
 `
@@ -25,81 +55,57 @@ flex-direction: column;
 height: 150px
 
 `
-const data = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
-export default function Chart(props:any) {
+
+type props = {
+  color: string;
+  iconDisplayed: string;
+  title: string;
+  dataKey: string;
+  value: number | string;
+  percentage: any;
+  chartData: object[]; 
+
+}
+
+
+export default function Chart(props:props) {
     console.log(props)
   return (
-    <ChartBox className={`text-${props.color}-900`}>
+    <ChartBox  color={props.color}>
       <BoxContainer>
          <div className='flex gap-3'>
-            <FaUsers className="w-7 h-7 my-auto"/>
-            <h1 className='font-semibold my-auto text-lg'>Users Online</h1>
+
+          {props.iconDisplayed === "FaUsers"? <FaUsers className="w-7 h-7 my-auto"/> : 
+           props.iconDisplayed === "FaCashRegister"? <FaCashRegister className="w-7 h-7 my-auto"/>:
+           props.iconDisplayed === "FaShoppingBag"? <FaShoppingBag className="w-7 h-7 my-auto"/> :
+           <FaPercentage className="w-7 h-7 my-auto"/>} 
+
+            
+            <h1 className='font-semibold my-auto text-lg '>{props.title}</h1>
         </div>
-        <h1 className='text-3xl font-semibold'> 7,521</h1>
-       <Link to="/">View all</Link>
+        <h1 className='text-3xl font-semibold '> {props.value}</h1>
+       <Link to="/"
+       className='text-gray-700 font-medium'>View all</Link>
       </BoxContainer>
 
        <ChartContainer>
                 <div className='flex h-full w-44'>
                 <ResponsiveContainer width="99%" height="100%">
                
-                     <LineChart data={data}>
+                     <LineChart data={props.chartData}>
                         <Tooltip
-                        contentStyle={{background:"transparent", border:"none"}}
+                        contentStyle={{background:"transparent", border:"none", fontWeight:"bold" , color:"#52525b"}}
                         labelStyle={{display:"none"}}
-                        position={{x:-10, y:68}}
+                        position={{x:-35, y:68}}
                         />
-                        <Line type="monotone" dataKey="pv" stroke="#374151" strokeWidth={2} />
+                        <Line type="monotone" dataKey={props.dataKey} stroke="#374151" strokeWidth={2} />
                         </LineChart>
                      </ResponsiveContainer>
                 </div>
 
                 <div className='block ml-auto'>
-                    <p className='text-2xl font-semibold '>45%</p>
-                    <p>This month</p>
+                    <p className='text-2xl font-semibold '>{props.percentage}%</p>
+                    <p className='text-gray-700 font-medium'>This month</p>
                 </div>
             
        </ChartContainer> 
