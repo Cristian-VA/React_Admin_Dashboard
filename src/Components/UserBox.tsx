@@ -1,4 +1,19 @@
 import React from 'react'
+import styled, {keyframes} from "styled-components"
+
+
+const fadeIn = keyframes`
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`
+
+const UserBoxContainer = styled.div`
+animation: 1.2s ${fadeIn} ease-in;
+`
 
 const data = [
     {
@@ -30,14 +45,14 @@ const data = [
         amount: "3,913"
     },
     {
-        id: 6,
+        id: 5,
         img: "../src/images/userboxProfiles/male3.jpg",
         userName: "Phil Green",
         email: "Philgreen96@gmail.com",
         amount: "3,820"
     },
     {
-        id: 7,
+        id: 6,
         img: "../src/images/userboxProfiles/MaleProfile1.jpg",
         userName: "Ryan Elliot",
         email: "elliot123@gmail.com",
@@ -64,12 +79,12 @@ const mapData = data.map(item => {
 
 export default function UserBox() {
   return (
-    <div className='text-gray-600 '>
+    <UserBoxContainer className='text-gray-600 '>
     <h1 className='text-2xl'>Top Customers</h1>
 
     {mapData}
 
 
-    </div>
+    </UserBoxContainer>
   )
 }

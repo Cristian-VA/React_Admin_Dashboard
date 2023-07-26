@@ -11,6 +11,7 @@ display: grid;
 gap: 1.5em;
 grid-template-columns: 1fr 1fr 1fr 1fr;
 grid-auto-rows: minmax(180px, auto);
+margin: 0.8em 0;
 
 `
 
@@ -87,6 +88,51 @@ const BarDataProfits = [
   {name:"Fri", Profit: 3600},
   {name:"Sat", Profit: 3500},
 ]
+
+const BigChartData = [
+  {
+    name: 'January',
+    Headphones: 4000,
+    Speakers: 2400,
+    SoundBars: 2400,
+  },
+  {
+    name: 'February',
+    Headphones: 3000,
+    Speakers: 1398,
+    SoundBars: 2210,
+  },
+  {
+    name: 'March',
+    Headphones: 2000,
+    Speakers: 9800,
+    SoundBars: 2290,
+  },
+  {
+    name: 'April',
+    Headphones: 2780,
+    Speakers: 3908,
+    SoundBars: 2000,
+  },
+  {
+    name: 'May',
+    Headphones: 1890,
+    Speakers: 4800,
+    SoundBars: 2181,
+  },
+  {
+    name: 'June',
+    Headphones: 2390,
+    Speakers: 3800,
+    SoundBars: 2500,
+  },
+  {
+    name: 'July',
+    Headphones: 3490,
+    Speakers: 4300,
+    SoundBars: 2100,
+  },
+];
 
 
 export default function Home() {
@@ -165,7 +211,14 @@ export default function Home() {
       </Box8>
 
       <Box9 className='p-4 rounded-lg bg-white shadow-md'> 
-      <BigChartContainer/>
+      
+      <BigChartContainer
+      chartData={BigChartData}
+      title = "Most Popular Categories (Last 7 months)"
+      dataKey = "Headphones"
+      dataKey2 = "Speakers"
+      dataKey3 = "SoundBars"
+      />
       </Box9>
 
     </HomeStyle>

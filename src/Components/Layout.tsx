@@ -7,7 +7,7 @@ import SideMenu from './SideMenu'
 
 const StyledMain = styled.main`
  font-family: "Inter" , sans-serif;
- background: #fafafa;
+ background: #f2f2f3;
  color: #0f172a;
 
 
@@ -20,8 +20,7 @@ const Container = styled.div`
 const ContentContainer = styled.div`
     padding: 5px 20px;
     width: 100%;
-    background: #f2f2f3;
-    margin: auto 0;
+
 `
 
 const MenuContainer = styled.div`
