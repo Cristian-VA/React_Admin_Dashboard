@@ -4,7 +4,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Home from './pages/Home'
 import Products from './pages/Products'
 import Users from './pages/Users'
-
+import UserPage from './pages/UserPage'
 
 function App() {
 
@@ -13,7 +13,9 @@ function App() {
 
       <Route index element ={<Home/>}/>
         <Route path="/users" element={<Users/>}/>
+        <Route path= "/users/:id" element={<UserPage/>}/>
         <Route path ="/products" element={<Products/>}/>
+       
       </Route>
   ))
 

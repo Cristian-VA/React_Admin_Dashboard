@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import DatagridTable from '../Components/DatagridTable'
 import { DataGrid, GridColDef, GridValueGetterParams, GridToolbar } from '@mui/x-data-grid';
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import AddModal from '../Components/AddModal';
 
 
 
@@ -12,9 +12,9 @@ const UsersContainer = styled.div`
  
 `
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'id', headerName: 'ID', width: 90,   type:"number" },
   {
-    field:"avatar", headerName: "Avatar", width: 100,
+    field:"avatar", headerName: "Avatar", width: 100,   type:"string",
     renderCell: (params) =>{
       return <img className='w-12 h-12 p-2 rounded-full object-cover' src={params.row.img || "../src/images/userboxProfiles/anonImage.jpg"} alt=""/>
     }
@@ -24,17 +24,20 @@ const columns: GridColDef[] = [
     headerName: 'First name',
     width: 170,
     editable: true,
+    type:"string"
   },
   {
     field: 'lastName',
     headerName: 'Last name',
     width: 170,
     editable: true,
+    type:"string"
   },
   {
     field: 'fullName',
     headerName: 'Full name',
     description: 'This column has a value getter and is not sortable.',
+    type:"string",
     width: 180,
     valueGetter: (params: GridValueGetterParams) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
@@ -44,18 +47,21 @@ const columns: GridColDef[] = [
     headerName: 'Email',
     width: 170,
     editable: true,
+    type:"string",
   },
   {
     field: 'phone',
     headerName: 'Phone',
     width: 170,
     editable: true,
+    type:"string",
   },
   {
     field: 'createdat',
     headerName: 'Created At',
     width: 170,
     editable: true,
+    type:"string",
   },
   {
     field: 'status',
@@ -63,17 +69,7 @@ const columns: GridColDef[] = [
     width: 120,
     type:"boolean",  
   },
-  {
-    field: 'actions',
-    headerName: 'Actions',
-    width: 120,
-    renderCell: (params) =>{
-      return <div className='flex gap-2'>
-        <FaEdit className="w-5 h-5 text-emerald-400"/>
-        <FaTrashAlt className="w-5 h-5 text-red-400"/>
-      </div>
-    }  
-  },
+  
 ];
 
 const rows = [
@@ -95,16 +91,29 @@ const rows = [
 
 
 export default function Users() {
+
+  const [open, setOpen] = React.useState(false)
+
   return (
     <UsersContainer>
       <div className='flex gap-10 my-5'>
           <h1 className='text-4xl'>Users</h1>
-          <button className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New User</button>
+          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New User</button>
       </div>
 
       <DatagridTable
        columnData={columns}
-       rowData={rows}/>
+       rowData={rows}
+       category = "users"/>
+
+       {open? 
+       <AddModal
+       setOpen ={setOpen}
+       category="Users"
+       columnData = {columns}
+       />
+       
+       : ""}
     </UsersContainer>
   )
 }
