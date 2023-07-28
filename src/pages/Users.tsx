@@ -3,7 +3,7 @@ import styled from "styled-components"
 import DatagridTable from '../Components/DatagridTable'
 import { DataGrid, GridColDef, GridValueGetterParams, GridToolbar } from '@mui/x-data-grid';
 import AddModal from '../Components/AddModal';
-
+import { useQuery } from "@tanstack/react-query"
 
 
 const UsersContainer = styled.div`
@@ -72,20 +72,6 @@ const columns: GridColDef[] = [
   
 ];
 
-const rows = [
-  { id: 1, lastName: 'Brown', firstName: 'Kate', email: "brownk@gmail.com", img:"../src/images/userboxProfiles/female4.jpg", status: true, phone: "+1 505-892-2361", createdat: "01.02.2023" },
-  { id: 2, lastName: 'Williams', firstName: 'Beth',email: "BethWilliams5@gmail.com", img: "../src/images/userboxProfiles/femaleP1.jpg", status: false, phone: "+1 208-274-6962",  createdat: "01.02.2023"},
-  { id: 3, lastName: 'Allen', firstName: 'Megan',email: "Allen123@gmail.com",img: "../src/images/userboxProfiles/femaleP2.jpg", status: true, phone: "+1 505-680-7804",    createdat: "01.02.2023"},
-  { id: 4, lastName: 'Abney', firstName: 'Thomas',email: "TomAbney94@gmail.com",img: "../src/images/userboxProfiles/Male2.jpg", status: true, phone: "+1 207-823-4274",         createdat: "01.02.2023"},
-  { id: 5, lastName: 'Green', firstName: 'Phil',email: "Philgreen96@gmail.com",img: "../src/images/userboxProfiles/male3.jpg", status: false, phone: "+1 505-646-8683", createdat: "01.02.2023"},
-  { id: 6, lastName: 'Elliot', firstName: "Ryan",email: "elliot123@gmail.com",img: "../src/images/userboxProfiles/MaleProfile1.jpg", status: true, phone: "+1 505-839-1238",      createdat: "01.02.2023" },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', email: "clifford97@gmail.com",img: "../src/images/userboxProfiles/dogProfuke.jpg", status: true, phone: "+1 505-656-2329",   createdat: "01.02.2023" },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', email: "Frossini@gmail.com" , status: true, phone: "+1 505-644-2476",   createdat: "01.02.2023" },
-  { id: 9, lastName: 'Sanchez', firstName: 'Pablo', email: "Psanchez@gmail.com",img: "../src/images/userboxProfiles/male4.jpg", status: true, phone: "+1 223-755-5970",       createdat: "01.02.2023" },
-  { id: 10, lastName: 'Clifford', firstName: 'Ferrara', status: true, phone: "+1 505-622-5153",  createdat: "01.02.2023" },
-  { id: 11, lastName: 'Frances', firstName: 'Rossini', status: true, phone: "+1 505-892-2361",   createdat: "01.02.2023" },
-  { id: 12, lastName: 'Roxie', firstName: 'Harvey', status: true,phone: "+1 505-892-2361",       createdat: "01.02.2023" },
-];
 
 
 
@@ -94,6 +80,16 @@ export default function Users() {
 
   const [open, setOpen] = React.useState(false)
 
+  const { isLoading , data } = useQuery({
+       queryKey: ["allusers"],
+       queryFn: () =>
+         fetch("http://localhost:3000/api/users").then(
+           (res) => res.json()
+         ),
+     })
+
+    
+
   return (
     <UsersContainer>
       <div className='flex gap-10 my-5'>
@@ -101,10 +97,13 @@ export default function Users() {
           <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New User</button>
       </div>
 
+      {isLoading? "loading": (
       <DatagridTable
        columnData={columns}
-       rowData={rows}
+       rowData={data}
        category = "users"/>
+      )
+      }
 
        {open? 
        <AddModal
@@ -112,7 +111,6 @@ export default function Users() {
        category="Users"
        columnData = {columns}
        />
-       
        : ""}
     </UsersContainer>
   )

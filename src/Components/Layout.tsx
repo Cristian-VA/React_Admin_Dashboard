@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Navbar from './Navbar'
 import Footer from './Footer'
 import SideMenu from './SideMenu'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 
 const StyledMain = styled.main`
  font-family: "Inter" , sans-serif;
@@ -29,7 +30,10 @@ const MenuContainer = styled.div`
  border-right: 2px green solid;
  background: #3f3f46;
  color: #fafafa;
+ 
 `
+
+const queryClient = new QueryClient()
 
 export default function Layout() {
   return (
@@ -41,7 +45,9 @@ export default function Layout() {
                      </MenuContainer>
 
                         <ContentContainer>
-                            <Outlet/>
+                           <QueryClientProvider client={queryClient}>
+                             <Outlet/>
+                            </QueryClientProvider>
                         </ContentContainer>
                 </Container>    
             <Footer/>
