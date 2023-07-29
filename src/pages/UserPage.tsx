@@ -15,12 +15,31 @@ export default function UserPage() {
       ),
   })
 
-  console.log(data)
+  console.log(data?.chart?.dataKeys[0]?.name)
 
   return (
     <div>
-      <SinglePage
-      title={data?.firstName}/>
+      {isLoading? "Loading": (
+        <SinglePage
+      title={data?.username}
+      lastName={data?.lastName}
+      firstName={data?.firstName}
+      email={data?.email}
+      phone={data?.phone}
+      status ={data?.status}
+      img = {data?.img}
+      
+      chartdata = {data?.chart?.data}
+      datakey1 = {data?.chart?.dataKeys[0]?.name}
+      datakey2 = {data?.chart?.dataKeys[1]?.name}
+      activities = {data?.activities}
+
+      />
+      )
+      
+      }
+
+      
     </div>
   )
 }

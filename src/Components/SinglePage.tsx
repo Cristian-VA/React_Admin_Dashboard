@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import { FaCheck } from "react-icons/fa"
+import { FiX } from "react-icons/fi";
 const SinglePContainer = styled.div`
 
 
@@ -9,7 +10,7 @@ const SinglePContainer = styled.div`
 
 const ViewContianer = styled.div`
 display:flex;
-gap: 2em;
+gap: 5em;
 `
 const InfoContainer = styled.div`
 margin-left: 2em;
@@ -66,50 +67,6 @@ ul{
 }
 `
 
-const data = [
-  {
-    name: 'Mon',
-    Clicks: 4000,
-    Visits: 2400,
-    
-  },
-  {
-    name: 'Tue',
-    Clicks: 3000,
-    Visits: 1398,
-    
-  },
-  {
-    name: 'Wed',
-    Clicks: 2000,
-    Visits: 9800,
-               
-  },
-  {
-    name: 'Thu',
-    Clicks: 2780,
-    Visits: 3908,
-     
-  },
-  {
-    name: 'Fri',
-    Clicks: 1890,
-    Visits: 4800,
-    
-  },
-  {
-    name: 'Sat',
-    Clicks: 2390,
-    Visits: 3800,
-    
-  },
-  {
-    name: 'Sun',
-    Clicks: 3490,
-    Visits: 4300,
-   
-  },
-];
 
 type Props ={
   id: number
@@ -124,15 +81,36 @@ type Props ={
 }
 
 
-
+//const columnData = props.columnData.filter((item:any) => item.field !== "id" && item.field !=="avatar")
+//.map( (column:any) => {
+//    return (
+//        <div className='flex flex-col m-4'>
+//            <label className='mb-2'>{column.headerName}</label>
+//            <input className='py-2 px-4 shadow-md rounded-lg' title={column.headerName} type={column.type} placeholder={column.field}/>
+//        </div>
+//    )
+//})
 
 export default function SinglePage(props:any) {
+
+ const ActivityFeedActions = props.activities?.map((item:any) =>{
+  return (
+  <li key={props.title}>
+    <div>
+        <p> {item.text} </p>
+    <time> {item.time}</time>
+   </div>
+</li>
+  )
+ })
+
+  console.log(props)
   return (
     <SinglePContainer>
       <ViewContianer>
         <InfoContainer>
             <div className='flex gap-5'>
-              {props.img && <img className='w-40 h-40 object-cover rounded-xl' src="{props.img}" alt="" />}
+              {props.img && <img className='w-40 h-40 object-cover rounded-xl' src={props.img} alt="" />}
                 
                 
                   <h1 className='text-2xl my-auto bg-red-400 py-2 px-4 text-gray-100'> {props.title}</h1>
@@ -142,23 +120,24 @@ export default function SinglePage(props:any) {
             <Details>
               <div className='my-3 flex gap-2 '>
                 <h1 className='text-sky-800 font-semibold'> Username:</h1>
-                <h1> JohnDoe89</h1>
+                <h1> {props.title}</h1>
               </div>
               <div className='my-3 flex gap-2'>
                 <h1 className='text-sky-800 font-semibold'> Fullname:</h1>
-                <h1> John Doe</h1>
+                <h1> {`${props.firstName} ${props.lastName}`}</h1>
               </div>
               <div className='my-3 flex gap-2'>
                 <h1 className='text-sky-800 font-semibold'> Email:</h1>
-                <h1> JhonDoe@gmail.com</h1>
+                <h1> {props.email}</h1>
               </div>
               <div className='my-3 flex gap-2'>
                 <h1 className='text-sky-800 font-semibold'> Phone:</h1>
-                <h1> 123 542 289</h1>
+                <h1> {props.phone}</h1>
               </div>
               <div className='my-3 flex gap-2'>
-                <h1 className='text-sky-800 font-semibold'> Status:</h1>
-                <h1> Verified</h1>
+                <h1 className='text-sky-800 font-semibold'> Verified:</h1>
+                 {props.status? <FaCheck className="text-emerald-600 my-auto w-6 h-6"/>: 
+                 <FiX className="text-rose-600 my-auto w-6 h-6"/>}
               </div>
 
             </Details>
@@ -167,7 +146,7 @@ export default function SinglePage(props:any) {
                       <LineChart
                         width={500}
                         height={300}
-                        data={data}
+                        data={props.chartdata}
                         margin={{
                           top: 5,
                           right: 30,
@@ -180,8 +159,8 @@ export default function SinglePage(props:any) {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Line type="monotone" dataKey="Clicks" stroke="#f59e0b" activeDot={{ r: 8 }} />
-                        <Line type="monotone" dataKey="Visits" stroke="#10b981" />
+                        <Line type="monotone" dataKey={props.datakey1} stroke="#f59e0b" activeDot={{ r: 8 }} />
+                        <Line type="monotone" dataKey={props.datakey2} stroke="#10b981" />
                       </LineChart>
                     </ResponsiveContainer>
               </ChartBox>
@@ -190,30 +169,7 @@ export default function SinglePage(props:any) {
         <ActivityFeed>
           <h1 className='text-emerald-700 text-2xl font-semibold'> Activity Feed</h1>
           <ul>
-            <li>
-              <div>
-                <p> John Doe purchased Bluetooth SoundLink Flex </p>
-                <time> 3 days ago</time>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p> John Doe added 1 item to his wishlist </p>
-                <time> 1 week ago</time>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p> John Doe purchased reviewed one product </p>
-                <time> 2 weeks ago</time>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p> John Doe purchased reviewed one product </p>
-                <time> 3 weeks ago</time>
-              </div>
-            </li>
+                      {ActivityFeedActions}
 
           </ul>
         </ActivityFeed>
