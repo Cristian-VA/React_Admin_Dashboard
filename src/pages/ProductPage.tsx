@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 
 
-export default function UserPage() {
+export default function ProductPage() {
   let params = useParams()
 
   const { isLoading , data } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch(`http://localhost:3000/api/users/${params.id}`).then(
+      fetch(`http://localhost:3000/api/products/${params.id}`).then(
         (res) => res.json()
       ),
   })
@@ -21,19 +21,19 @@ export default function UserPage() {
     <div>
       {isLoading? "Loading": (
         <SinglePage
-        field1 = "Username:"
-        field2 = "Fullname:"
-        field3 = "Email"
-        field4 = "Phone:"
-        field5 = "Verified:"
+      field1 = "Product:"
+      field2 = "Brand:"
+      field3 = "Price"
+      field4 = "Color:"
+      field5 = "In Stock:"
 
-        field1Info={data?.username}
-        field2Info={data?.lastName}
-        field15Info={data?.firstName}
-        field3Info={data?.email}
-        field4Info={data?.phone}
-        field5Info ={data?.status}
-        img = {data?.img}
+      field1Info={data?.title}
+      field2Info={data?.Brand}
+    
+      field3Info={data?.price}
+      field4Info={data?.color}
+      field5Info ={data?.inStock}
+      img = {data?.img}
       
       chartdata = {data?.chart?.data}
       datakey1 = {data?.chart?.dataKeys[0]?.name}

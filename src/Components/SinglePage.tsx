@@ -113,30 +113,33 @@ export default function SinglePage(props:any) {
               {props.img && <img className='w-40 h-40 object-cover rounded-xl' src={props.img} alt="" />}
                 
                 
-                  <h1 className='text-2xl my-auto bg-red-400 py-2 px-4 text-gray-100'> {props.title}</h1>
+                  <h1 className='text-2xl my-auto bg-red-400 py-2 px-4 text-gray-100'> {props.field1Info}</h1>
                   
            
             </div>
             <Details>
               <div className='my-3 flex gap-2 '>
-                <h1 className='text-sky-800 font-semibold'> Username:</h1>
-                <h1> {props.title}</h1>
+                <h1 className='text-sky-800 font-semibold'> {props.field1}</h1>
+                <h1> {props.field1Info}</h1>
               </div>
               <div className='my-3 flex gap-2'>
-                <h1 className='text-sky-800 font-semibold'> Fullname:</h1>
-                <h1> {`${props.firstName} ${props.lastName}`}</h1>
+                <h1 className='text-sky-800 font-semibold'> {props.field2}</h1>
+                {props.field15Info? (
+                   <h1> {`${props.field15Info} ${props.field2Info}`}</h1>
+                ) : <h1> {`${props.field2Info}`}</h1> }
+               
               </div>
               <div className='my-3 flex gap-2'>
-                <h1 className='text-sky-800 font-semibold'> Email:</h1>
-                <h1> {props.email}</h1>
+                <h1 className='text-sky-800 font-semibold'> {props.field3}:</h1>
+                <h1> {props.field3Info}</h1>
               </div>
               <div className='my-3 flex gap-2'>
-                <h1 className='text-sky-800 font-semibold'> Phone:</h1>
-                <h1> {props.phone}</h1>
+                <h1 className='text-sky-800 font-semibold'> {props.field4}</h1>
+                <h1> {props.field4Info}</h1>
               </div>
               <div className='my-3 flex gap-2'>
-                <h1 className='text-sky-800 font-semibold'> Verified:</h1>
-                 {props.status? <FaCheck className="text-emerald-600 my-auto w-6 h-6"/>: 
+                <h1 className='text-sky-800 font-semibold'> {props.field5}</h1>
+                 {props.field5Info? <FaCheck className="text-emerald-600 my-auto w-6 h-6"/>: 
                  <FiX className="text-rose-600 my-auto w-6 h-6"/>}
               </div>
 
