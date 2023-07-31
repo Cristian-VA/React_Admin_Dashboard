@@ -7,6 +7,9 @@ import Users from './pages/Users'
 import UserPage from './pages/UserPage'
 import ProductPage from './pages/ProductPage'
 import Orders from './pages/Orders'
+import OrderPage from './pages/OrderPage'
+import Posts from './pages/Posts'
+
 function App() {
 
   const router= createBrowserRouter(createRoutesFromElements(
@@ -18,6 +21,8 @@ function App() {
         <Route path ="/products" element={<Products/>}/>
         <Route path= "/products/:id" element={<ProductPage/>}/>
         <Route path="/orders" element={<Orders/>}/>
+        <Route path="/orders/:id" element={<OrderPage/>}/>
+        <Route path="/posts" element={<Posts/>}/>
        
       </Route>
   ))

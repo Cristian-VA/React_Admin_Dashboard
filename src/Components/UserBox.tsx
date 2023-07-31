@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {keyframes} from "styled-components"
-
+import { Link } from 'react-router-dom'
 
 const fadeIn = keyframes`
 0% {
@@ -62,7 +62,8 @@ const data = [
 
 const mapData = data.map(item => {
     return (
-        <div key={item.id} className='pl-5 pr-2 flex justify-between my-8'>
+        <Link key={item.id} to={`/users/${item.id}`}>
+        <div  className='pl-5 pr-2 flex justify-between my-8'>
         <div className='flex gap-4'>
              <img className='rounded-full w-14 h-14' src={item.img} alt="" />
             
@@ -74,6 +75,7 @@ const mapData = data.map(item => {
         
         <h1 className='my-auto font-semibold text-lg'>${item.amount}</h1>
     </div>
+    </Link>
     )
 })
 

@@ -12,7 +12,7 @@ const UsersContainer = styled.div`
  
 `
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'Supplier ID', width: 90,   type:"number" },
+  { field: 'id', headerName: 'Meeting ID', width: 90,   type:"number" },
   {
     field:"avatar", headerName: "Img", width: 100,   type:"string",
     renderCell: (params) =>{
@@ -20,50 +20,36 @@ const columns: GridColDef[] = [
     }
   },
   {
-    field: 'suplier',
-    headerName: 'Order Number',
+    field: 'activity',
+    headerName: "Activity",
     width: 170,
     editable: true,
     type:"string"
   },
   {
-    field: 'suplier',
-    headerName: 'Suplier',
+    field: 'Date',
+    headerName: 'Date',
     width: 170,
     editable: true,
     type:"string"
   },
   {
-    field: 'orderDate',
-    headerName: 'Order Date',
+    field: 'time',
+    headerName: 'Time',
     width: 170,
     editable: true,
     type:"string",
   },
   {
-    field: 'orderNumber',
-    headerName: 'Order Number',
+    field: 'organizer',
+    headerName: 'Organizer',
     width: 170,
     editable: true,
     type:"string",
   },
   {
-    field: 'brief',
-    headerName: 'Description',
-    width: 170,
-    editable: true,
-    type:"string",
-  },
-  {
-    field: 'requestedBy',
-    headerName: 'Requested By',
-    width: 170,
-    editable: true,
-    type:"string",
-  },
-  {
-    field: 'delivered',
-    headerName: 'Delivered',
+    field: 'mandatory',
+    headerName: 'Mandatory',
     width: 120,
     type:"boolean",  
   },
@@ -74,14 +60,14 @@ const columns: GridColDef[] = [
 
 
 
-export default function Orders() {
+export default function Posts() {
 
   const [open, setOpen] = React.useState(false)
 
   const { isLoading , data } = useQuery({
-       queryKey: ["allorders"],
+       queryKey: ["allposts"],
        queryFn: () =>
-         fetch("http://localhost:3000/api/orders").then(
+         fetch("http://localhost:3000/api/posts").then(
            (res) => res.json()
          ),
      })
@@ -101,14 +87,16 @@ export default function Orders() {
       <DatagridTable
        columnData={columns}
        rowData={data}
-       category = "orders"/>
+       category = "posts"
+       noView = {true}
+       />
       )
       }
 
        {open? 
        <AddModal
        setOpen ={setOpen}
-       category="Order"
+       category="Meeting"
        columnData = {columns}
        />
        : ""}

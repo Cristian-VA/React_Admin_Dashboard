@@ -2,14 +2,30 @@ import React from 'react'
 import { DataGrid,  GridColDef,  GridToolbar } from '@mui/x-data-grid';
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
 
 
-
-const handleDelete = (id:number) =>{
-  console.log(id)
-}
 
 export default function DatagridTable(props:any) {
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (id: number) => {
+      return fetch(`http://localhost:3000/api/${props.category}/${id}`, {
+        method: "delete",
+      });
+    },
+    onSuccess: ()=>{
+      queryClient.invalidateQueries([`all${props.category}`]);
+    }
+  });
+
+
+  const handleDelete = (id: number) => {
+
+     mutation.mutate(id)
+  };
+
 
   const actionsColumn:GridColDef =  {
   
@@ -19,10 +35,13 @@ export default function DatagridTable(props:any) {
     renderCell: (params) =>{
       return (
       <div className='flex gap-2'>
-         <Link to={`/${props.category}/${params.row.id}`}>
+        {props.noView? "" : (
+          <Link to={`/${props.category}/${params.row.id}`}>
           <FaEdit className="w-5 h-5 text-emerald-400"/>
         </Link>
-        <FaTrashAlt onClick={()=>handleDelete(params.row.id)} className="w-5 h-5 text-red-400 cursor-pointer"/>
+        )}
+        
+        <FaTrashAlt onClick={() => handleDelete(params.row.id)} className="w-5 h-5 text-red-400 cursor-pointer"/>
       </div>
       )
   }

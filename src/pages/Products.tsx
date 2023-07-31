@@ -93,7 +93,7 @@ export default function Products() {
        {open? 
        <AddModal
        setOpen ={setOpen}
-       category="Products"
+       category="Product"
        columnData = {columns}
        />
        : ""}

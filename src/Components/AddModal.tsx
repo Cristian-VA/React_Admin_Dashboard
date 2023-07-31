@@ -49,8 +49,8 @@ export default function AddModal(props:any) {
     .map( (column:any) => {
         return (
             <div className='flex flex-col m-4'>
-                <label className='mb-2'>{column.headerName}</label>
-                <input className='py-2 px-4 shadow-md rounded-lg' title={column.headerName} type={column.type} placeholder={column.field}/>
+                <label className='mb-2 text-gray-700 font-semibold'>{column.headerName}</label>
+                <input className='py-2 px-4 shadow-md ' title={column.headerName} type={column.type} placeholder={column.field}/>
             </div>
         )
     })
@@ -58,7 +58,7 @@ export default function AddModal(props:any) {
     <AddModalContainer >
         <Modal>
         <FaWindowClose onClick={()=>{props.setOpen(false)}} className="w-6 h-6 absolute top-4 right-4 hover:text-gray-500 cursor-pointer transition text-red-500"/>
-          <h1 className='my-3 text-2xl text-center'>Add new {props.category}</h1>
+          <h1 className='mb-3 mt-1 text-3xl text-center text-gray-900 '>Add new {props.category}</h1>
           
           <form>
           <ContainerForm onClick={handleSubmit}>

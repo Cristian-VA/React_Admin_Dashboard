@@ -1,11 +1,19 @@
 import React from 'react'
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { FaCheck } from "react-icons/fa"
 import { FiX } from "react-icons/fi";
+
+const fadeIn = keyframes`
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`
+
 const SinglePContainer = styled.div`
-
-
 `
 
 const ViewContianer = styled.div`
@@ -15,7 +23,8 @@ gap: 5em;
 const InfoContainer = styled.div`
 margin-left: 2em;
 color: #374151;
-margin-top: 1.5em
+margin-top: 1.5em;
+animation: 1s ${fadeIn} ease-in;
 `
 
 
@@ -34,6 +43,7 @@ width: 700px;
 
 const ActivityFeed = styled.div`
 margin-top: 1.5em;
+animation: 1s ${fadeIn} ease-in;
 
 
 ul{
@@ -81,15 +91,6 @@ type Props ={
 }
 
 
-//const columnData = props.columnData.filter((item:any) => item.field !== "id" && item.field !=="avatar")
-//.map( (column:any) => {
-//    return (
-//        <div className='flex flex-col m-4'>
-//            <label className='mb-2'>{column.headerName}</label>
-//            <input className='py-2 px-4 shadow-md rounded-lg' title={column.headerName} type={column.type} placeholder={column.field}/>
-//        </div>
-//    )
-//})
 
 export default function SinglePage(props:any) {
 
@@ -97,14 +98,14 @@ export default function SinglePage(props:any) {
   return (
   <li key={props.title}>
     <div>
-        <p> {item.text} </p>
-    <time> {item.time}</time>
+        <p className='font-semibold mb-2'> {item.text} </p>
+    <time className='text-sm'> {item.time}</time>
    </div>
 </li>
   )
  })
 
-  console.log(props)
+  
   return (
     <SinglePContainer>
       <ViewContianer>
