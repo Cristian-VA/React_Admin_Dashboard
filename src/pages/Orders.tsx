@@ -94,7 +94,7 @@ export default function Orders() {
     <UsersContainer>
       <div className='flex gap-10 my-5'>
           <h1 className='text-4xl'>Orders</h1>
-          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New User</button>
+          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New Order</button>
       </div>
 
       {isLoading? "loading": (
@@ -108,8 +108,9 @@ export default function Orders() {
        {open? 
        <AddModal
        setOpen ={setOpen}
-       category="Order"
+       category="orders"
        columnData = {columns}
+       title="Order"
        />
        : ""}
     </UsersContainer>

@@ -34,6 +34,8 @@ export default function UserPage() {
         field4Info={data?.phone}
         field5Info ={data?.status}
         img = {data?.img}
+
+        type= "users"
       
       chartdata = {data?.chart?.data}
       datakey1 = {data?.chart?.dataKeys[0]?.name}

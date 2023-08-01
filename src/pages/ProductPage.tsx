@@ -34,6 +34,8 @@ export default function ProductPage() {
       field4Info={data?.color}
       field5Info ={data?.inStock}
       img = {data?.img}
+
+      type= "products"
       
       chartdata = {data?.chart?.data}
       datakey1 = {data?.chart?.dataKeys[0]?.name}

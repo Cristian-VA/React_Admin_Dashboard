@@ -3,6 +3,7 @@ import styled, {keyframes} from "styled-components"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { FaCheck } from "react-icons/fa"
 import { FiX } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 const fadeIn = keyframes`
 0% {
@@ -21,10 +22,12 @@ display:flex;
 gap: 5em;
 `
 const InfoContainer = styled.div`
-margin-left: 2em;
+
 color: #374151;
-margin-top: 1.5em;
+margin-top: 1em;
 animation: 1s ${fadeIn} ease-in;
+background: #7dd3fc40;
+padding: 1em;
 `
 
 
@@ -44,6 +47,8 @@ width: 700px;
 const ActivityFeed = styled.div`
 margin-top: 1.5em;
 animation: 1s ${fadeIn} ease-in;
+padding: 1em;
+
 
 
 ul{
@@ -110,11 +115,12 @@ export default function SinglePage(props:any) {
     <SinglePContainer>
       <ViewContianer>
         <InfoContainer>
-            <div className='flex gap-5'>
+            <div className='flex justify-between'>
               {props.img && <img className='w-40 h-40 object-cover rounded-xl' src={props.img} alt="" />}
                 
-                
-                  <h1 className='text-2xl my-auto bg-red-400 py-2 px-4 text-gray-100'> {props.field1Info}</h1>
+              <Link to={`/${props.type}`}>
+               <button className='mb-auto bg-emerald-500 px-4 py-1 text-white transition hover:bg-sky-500 capitalize'> Back to {props.type}</button> 
+              </Link>
                   
            
             </div>

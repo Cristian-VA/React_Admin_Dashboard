@@ -93,8 +93,9 @@ export default function Products() {
        {open? 
        <AddModal
        setOpen ={setOpen}
-       category="Product"
+       category="Products"
        columnData = {columns}
+       title="Product"
        />
        : ""}
     </UsersContainer>

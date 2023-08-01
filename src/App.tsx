@@ -9,6 +9,7 @@ import ProductPage from './pages/ProductPage'
 import Orders from './pages/Orders'
 import OrderPage from './pages/OrderPage'
 import Posts from './pages/Posts'
+import Calendar from './pages/Calendar'
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
         <Route path="/orders" element={<Orders/>}/>
         <Route path="/orders/:id" element={<OrderPage/>}/>
         <Route path="/posts" element={<Posts/>}/>
+
+        <Route path="/calendar" element={<Calendar/>}/>
        
       </Route>
   ))

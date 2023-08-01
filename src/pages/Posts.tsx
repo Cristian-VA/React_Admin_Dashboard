@@ -80,7 +80,7 @@ export default function Posts() {
     <UsersContainer>
       <div className='flex gap-10 my-5'>
           <h1 className='text-4xl'>Orders</h1>
-          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New User</button>
+          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New Post</button>
       </div>
 
       {isLoading? "loading": (
@@ -96,8 +96,9 @@ export default function Posts() {
        {open? 
        <AddModal
        setOpen ={setOpen}
-       category="Meeting"
+       category="posts"
        columnData = {columns}
+       title = "Post"
        />
        : ""}
     </UsersContainer>

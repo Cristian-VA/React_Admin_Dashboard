@@ -34,6 +34,8 @@ export default function OrderPage() {
       field4Info={data?.brief}
       field5Info ={data?.delivered}
       img = {data?.img}
+
+      type= "orders"
       
       chartdata = {data?.chart?.data}
       datakey1 = {data?.chart?.dataKeys[0]?.name}

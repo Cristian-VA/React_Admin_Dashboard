@@ -87,10 +87,12 @@ export default function SideMenu() {
             <h1 className='my-auto'> Forms</h1>
           </div>
 
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
+          <NavLink to="/calendar"
+           className= {({isActive}) => isActive ? active : notActive }>
             <FaCalendarAlt className="my-auto w-5 h-5"/>
             <h1 className='my-auto'> Calendars</h1>
-          </div>
+            </NavLink>
+
     
     <TitleDiv> 
       <h1>Maintenance</h1>

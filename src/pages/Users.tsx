@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import DatagridTable from '../Components/DatagridTable'
-import { DataGrid, GridColDef, GridValueGetterParams, GridToolbar } from '@mui/x-data-grid';
+import {  GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import AddModal from '../Components/AddModal';
 import { useQuery } from "@tanstack/react-query"
 
@@ -88,7 +88,7 @@ export default function Users() {
          ),
      })
 
-    
+    console.log(data)
 
   return (
     <UsersContainer>
@@ -98,20 +98,24 @@ export default function Users() {
       </div>
 
       {isLoading? "loading": (
-      <DatagridTable
-       columnData={columns}
-       rowData={data}
-       category = "users"/>
-      )
-      }
+  <DatagridTable
+   columnData={columns}
+   rowData={data}
+   category = "users"
+   />
+  )
+  }
 
        {open? 
        <AddModal
        setOpen ={setOpen}
        category="Users"
        columnData = {columns}
+       title="User"
        />
        : ""}
     </UsersContainer>
   )
 }
+
+

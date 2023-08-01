@@ -2,6 +2,8 @@ import React from 'react'
 import styled from "styled-components"
 import {FaWindowClose} from "react-icons/fa"
 import { BsFillSendFill } from "react-icons/bs"
+import { useQueryClient, useMutation } from '@tanstack/react-query';
+
 const AddModalContainer = styled.div`
 width: 99vw;
 height: 100vh;
@@ -30,10 +32,6 @@ grid-template-columns: 1fr 1fr;
 
 `
 
-const handleSubmit = (e:any) => {
-  e.preventDefault()
-  //add
-}
 
 type Props ={
     //category,
@@ -45,6 +43,40 @@ type Props ={
 
 
 export default function AddModal(props:any) {
+    
+ const queryClient = useQueryClient();
+ const mutation = useMutation({
+    mutationFn: () => {
+      return fetch(`http://localhost:3000/api/${props.category}`, {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: 111,
+          img: "",
+          lastName: "Hello",
+          firstName: "Test",
+          email: "testme@gmail.com",
+          phone: "123 456 789",
+          createdAt: "01.02.2023",
+          createdat: true,
+        }),    
+      });
+    },
+    onSuccess: ()=>{
+      queryClient.invalidateQueries([`all${props.category}`]);
+    }
+  });
+
+  
+const handleSubmit = (e:any) => {
+  e.preventDefault()
+  mutation.mutate()
+  
+}
+
     const columnData = props.columnData.filter((item:any) => item.field !== "id" && item.field !=="avatar")
     .map( (column:any) => {
         return (
@@ -58,7 +90,7 @@ export default function AddModal(props:any) {
     <AddModalContainer >
         <Modal>
         <FaWindowClose onClick={()=>{props.setOpen(false)}} className="w-6 h-6 absolute top-4 right-4 hover:text-gray-500 cursor-pointer transition text-red-500"/>
-          <h1 className='mb-3 mt-1 text-3xl text-center text-gray-900 '>Add new {props.category}</h1>
+          <h1 className='mb-3 mt-1 text-3xl text-center text-gray-900 '>Add new {props.title}</h1>
           
           <form>
           <ContainerForm onClick={handleSubmit}>
