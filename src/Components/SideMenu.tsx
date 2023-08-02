@@ -113,10 +113,11 @@ export default function SideMenu() {
       <h1>Analytics</h1>
     </TitleDiv>
           
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
+          <NavLink to="/charts"
+           className= {({isActive}) => isActive ? active : notActive }>
             <FaChartSimple className="my-auto w-5 h-5"/>
             <h1 className='my-auto'> Charts</h1>
-          </div>
+            </NavLink>
 
           <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
             <FaPen className="my-auto w-5 h-5"/>

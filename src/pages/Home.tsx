@@ -194,6 +194,7 @@ export default function Home() {
       fill = "#6ee7b7"
       dataKey = "Visits"
       chartData= {BarDataVisits}
+      height = "h-32"
       />
       </div>
 
@@ -203,6 +204,7 @@ export default function Home() {
     fill = "#a5b4fc"
     dataKey = "Profit"
     chartData= {BarDataProfits}
+    height = "h-32"
     />
     </div>
 
@@ -225,4 +227,4 @@ export default function Home() {
   )
 }
 
-//FaUsers, FaCashRegister, FaShoppingBag, FaPercentage
+

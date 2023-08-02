@@ -6,3 +6,15 @@ body{
     margin: 0px;
     padding: 0px;
 }
+
+:root {
+    --fc-border-color: #cbd5e1;
+    --fc-event-bg-color: #bae6fd;
+    --fc-event-border-color: #bae6fd;
+    --fc-event-text-color: #374151;
+    --fc-today-bg-color: #a7f3d0;
+    --fc-button-text-color: #0c4a6e;
+    --fc-button-bg-color: white;
+    --fc-button-border-color: #0c4a6e;
+    --fc-button-active-bg-color: #bae6fd;
+  }

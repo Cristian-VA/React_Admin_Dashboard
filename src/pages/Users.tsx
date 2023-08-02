@@ -88,7 +88,7 @@ export default function Users() {
          ),
      })
 
-    console.log(data)
+   
 
   return (
     <UsersContainer>

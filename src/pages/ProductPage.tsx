@@ -15,7 +15,7 @@ export default function ProductPage() {
       ),
   })
 
-  console.log(data?.chart?.dataKeys[0]?.name)
+
 
   return (
     <div>
