@@ -11,6 +11,7 @@ import OrderPage from './pages/OrderPage'
 import Posts from './pages/Posts'
 import Calendar from './pages/Calendar'
 import Charts from './pages/Charts'
+import FAQ from './pages/FAQ'
 function App() {
 
   const router= createBrowserRouter(createRoutesFromElements(
@@ -27,6 +28,7 @@ function App() {
 
         <Route path="/calendar" element={<Calendar/>}/>
         <Route path="/charts" element={<Charts/>}/>
+        <Route path="/FAQ" element={<FAQ/>}/>
       </Route>
   ))
 

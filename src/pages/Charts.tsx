@@ -1,82 +1,131 @@
 import styled from "styled-components"
 import UserBox from '../Components/UserBox'
-import Chart from '../Components/Chart'
-import BarChartContainer from '../Components/BarChartContainer'
-import PieCahtContainer from '../Components/PieChartContainer'
-import BigChartContainer from '../Components/BigChartContainer'
+import Chart from '../Components/charts/Chart'
+import BarChartContainer from '../Components/charts/BarChartContainer'
+import PieCahtContainer from '../Components/charts/PieChartContainer'
+import BigChartContainer from '../Components/charts/AreaChartContainer'
+import LineChartContainer from "../Components/charts/LineChartContainer"
+import RadarChartContainer from "../Components/charts/RadarChartContainer"
+import StackedBarChartContainer from "../Components/charts/StackedBarChartContainer"
+import ScatterChartContainer from "../Components/charts/ScatterChartContainer"
+import ComposedChartContainer from "../Components/charts/ComposedChartContainer"
+import PositiveNegativeBarContainer from "../Components/charts/PositiveNegativeBarContainer"
+import {pnData, composedData, data02, data01,stackedData, Radardata, LineData, BigChartData, pieData, BarDataVisits} from  "../ChartsMockData/ChartCharts"
 
 const HomeStyle = styled.div`
 display: grid;
 gap: 1.5em;
-grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr ;
 grid-auto-rows: minmax(250px, auto);
 margin: 1.5em 1em;
 
 `
-const BarDataVisits = [
-  {name:"Sun", Test: 30},
-  {name:"Mon", Test: 44},
-  {name:"Tue", Test: 55},
-  {name:"Wed", Test: 69},
-  {name:"Thu", Test: 60},
-  {name:"Fri", Test: 79},
-  {name:"Sat", Test: 70},
-]
+
 
 export default function Charts() {
   return (
     <HomeStyle>
 
-      <div className='p-4 rounded-lg bg-white shadow-md flex flex-col justify-between'> 
+      <div className='rounded-lg bg-white shadow-md flex flex-col justify-between '> 
 
       <BarChartContainer
       title = "Simple Bar Chart"
       fill = "#fca5a5"
       dataKey = "Test"
       chartData= {BarDataVisits}
-      height = "h-40"
+      height = "h-44"
       anchor= {true}
+      link = "https://recharts.org/en-US/examples/TinyBarChart"
+      
       
       />
      
       </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'>
-       
+      <div className='rounded-lg bg-white shadow-md'>
+      <PieCahtContainer
+      anchor = {true}
+      dimensions = "w-44 h-44"
+      data= {pieData}
+      link = "https://recharts.org/en-US/examples/PieChartWithPaddingAngle"
+      />
       </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'>  
-      
+      <div className=' rounded-lg bg-white shadow-md'>  
+      <BigChartContainer
+      dimensions="w-full h-44"
+      chartData={BigChartData}
+      title = "Area Chart"
+      dataKey = "Test1"
+      dataKey2 = "Test2"
+      dataKey3 = "Test3"
+      anchor = {true}
+      link = "https://recharts.org/en-US/examples/StackedAreaChart"
+      />
+  
       </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'>  
-       
+      <div className='rounded-lg bg-white shadow-md'>  
+       <LineChartContainer
+       dimensions= "w-full h-44 mt-3"
+       chartdata = {LineData}
+      datakey1 = {"Test1"}
+      datakey2 = {"Test2"}
+      title = "Line Chart"
+      anchor = {true}
+      link = "https://recharts.org/en-US/examples/SimpleLineChart"
+      />
       </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'>
+      <div className=' rounded-lg bg-white shadow-md'>
+        <RadarChartContainer
+         dimensions= "w-full h-44 mt-2"
+         chartdata = {Radardata}
+         title= "Radar Chart"
+         anchor= {true}
+         link = "https://recharts.org/en-US/examples/SimpleRadarChart"/>
     </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'> 
+      <div className='rounded-lg bg-white shadow-md'> 
+      <ScatterChartContainer
+      dimensions= " h-48 mt-2"
+      chartData1 = {data01}
+      chartData2 = {data02}
+      title= " Scatter Chart"
+      anchor= {true}
+      link = "https://recharts.org/en-US/examples/JointLineScatterChart"/>
+     
       </div>
 
-    <div className='p-4 rounded-lg bg-white shadow-md'>
+    <div className=' rounded-lg bg-white shadow-md'>
+      <StackedBarChartContainer
+      dimensions= "w-full h-44 mt-2"
+      chartData = {stackedData}
+      title= "Stacked Bar Chart"
+      anchor= {true}
+      link = "https://recharts.org/en-US/examples/StackedBarChart"/>
     </div>
 
-    <div className='p-4 rounded-lg bg-white shadow-md'>
+    <div className=' rounded-lg bg-white shadow-md'>
+    <PositiveNegativeBarContainer
+      dimensions= "w-full h-44 mt-2"
+      chartData = {pnData}
+      title= "Positive Negative Bar Chart"
+      anchor= {true}   
+      link = "https://recharts.org/en-US/examples/PositiveAndNegativeBarChart" />
+  
     </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'>
+      <div className='rounded-lg bg-white shadow-md'>
+      <ComposedChartContainer
+     dimensions= "w-full h-44 mt-2"
+     chartData = {composedData}
+     title= "Composed Chart"
+     anchor= {true}
+     link = "https://recharts.org/en-US/examples/LineBarAreaComposedChart"/>
     </div>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'>
-    </div>
-
-    <div className='p-4 rounded-lg bg-white shadow-md'>
-    </div>
-
-    <div className='p-4 rounded-lg bg-white shadow-md'>
-    </div>
-
+   
     </HomeStyle>
   )
 }

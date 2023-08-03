@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Navbar from './Navbar'
 import Footer from './Footer'
 import SideMenu from './SideMenu'
+
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 
 const StyledMain = styled.main`

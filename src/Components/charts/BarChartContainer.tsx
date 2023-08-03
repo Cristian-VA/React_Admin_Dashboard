@@ -1,7 +1,7 @@
 import React from 'react'
 import { BarChart, Bar,  Tooltip,  ResponsiveContainer } from 'recharts';
 import styled from "styled-components"
-import { FaCode } from "react-icons/fa";
+import { FaCode } from "react-icons/fa"
 
 const BarBox = styled.div`
 display: flex;
@@ -18,10 +18,10 @@ export default function BarChartContainer(props:any) {
   return (
     <BarBox>
       {props.anchor? (
-        <div className='flex justify-between'>
-            <h1 className='text-lg  text-gray-600 p-1 my-auto'>{props.title}</h1>
-            <a href="https://recharts.org/en-US/" target="_blank">
-              <div className=' flex my-auto gap-1 border-2 border-gray-300 px-2 py-2 shadow-sm text-gray-600 rounded-md transition hover:bg-slate-100 mb-3'>
+        <div className='flex justify-between bg-rose-100 rounded-md p-2'>
+            <h1 className={` p-1 my-auto text-2xl  text-gray-600`}>{props.title}</h1>
+            <a href={props.link} target="_blank" rel="noopener" className='my-auto'>
+              <div className=' bg-white flex my-auto gap-1 border-2 border-gray-300 px-2 py-2 shadow-sm text-gray-600 rounded-md transition hover:bg-slate-200 '>
               <FaCode className="my-auto"/>
               <h1 className="my-auto">Code</h1>
               </div>
