@@ -22,14 +22,15 @@ const Container = styled.div`
 const ContentContainer = styled.div`
     padding: 5px 20px;
     width: 100%;
+    margin: auto
 
 `
 
 const MenuContainer = styled.div`
  width: 250px;
  padding: 0px;
- border-right: 2px green solid;
- background: #3f3f46;
+
+ background: #f9fafb;
  color: #fafafa;
  
 `
@@ -39,7 +40,7 @@ const queryClient = new QueryClient()
 export default function Layout() {
   return (
     <StyledMain>
-        <Navbar/>
+       
                 <Container>
                      <MenuContainer>
                         <SideMenu/>

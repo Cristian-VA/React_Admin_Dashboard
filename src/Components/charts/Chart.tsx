@@ -11,7 +11,7 @@ const BoxContainer = styled.div`
  height: 150px
 `
 
-//const displayedIcon = 
+
 
 const ChartBox = styled.div`
 ${({color})=>{
@@ -69,7 +69,7 @@ type props = {
 
 
 export default function Chart(props:props) {
-    console.log(props)
+    
   return (
     <ChartBox  color={props.color}>
       <BoxContainer>

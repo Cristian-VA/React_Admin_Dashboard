@@ -26,26 +26,35 @@ flex-direction: column;
 font-size: 0.875rem;
 line-height: 1.25rem;
 font-weight: 600;
-gap: 0.5rem;
+gap: 0.3rem;
 color: #4b5563;
+
 `
 
 
+type props = {
+    
+
+  dimensions: string
+  anchor: boolean
+  link: string
+  data: object[]
+  
+}
 
 
 
-
-export default function PieCahtContainer(props:any) {
+export default function PieCahtContainer(props:props) {
 
   const Legend = props.data.map((item:any) =>{
     return (
       <LegendContainer key={item.name}>
         <div className='flex gap-2'>
             <div className='w-5 h-5 rounded-full my-auto' style={{background:item.color}}></div>
-            <h1 className='my-auto'>{item.name}</h1>
+            <h1 >{item.name}</h1>
         </div>
   
-        <h1 className=''>{item.value}</h1>
+        <h1 >{item.value}</h1>
   
       </LegendContainer>
     )
@@ -64,7 +73,7 @@ export default function PieCahtContainer(props:any) {
               
               </a>
         </div>
-      ) : <h1 className='text-2xl text-gray-600 p-1'>Leeds by Source</h1> }
+      ) : <h1 className='text-2xl px-4 text-sky-50 bg-sky-500 p-2 mb-4 rounded-t-lg shadow-md'>Leeds by Source</h1> }
 
     <div className={`${props.dimensions} block mx-auto`} >
     <ResponsiveContainer width="99%" height="100%">

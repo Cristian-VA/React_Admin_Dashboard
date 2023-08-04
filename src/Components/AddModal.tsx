@@ -3,7 +3,7 @@ import styled from "styled-components"
 import {FaWindowClose} from "react-icons/fa"
 import { BsFillSendFill } from "react-icons/bs"
 import { useQueryClient, useMutation } from '@tanstack/react-query';
-
+import { GridColDef } from '@mui/x-data-grid';
 const AddModalContainer = styled.div`
 width: 99vw;
 height: 100vh;
@@ -33,16 +33,17 @@ grid-template-columns: 1fr 1fr;
 `
 
 
-type Props ={
-    //category,
-    //columnData, gridcoldef
-    //setOpen, hover over element to see its type
+type props ={
+    category: string 
+    columnData: any
+    setOpen: any
+    title: string
 }
 
 
 
 
-export default function AddModal(props:any) {
+export default function AddModal(props:props) {
     
  const queryClient = useQueryClient();
  const mutation = useMutation({

@@ -20,6 +20,7 @@ export default function ProductPage() {
   return (
     <div>
       {isLoading? "Loading": (
+        // @ts-ignore
         <SinglePage
       field1 = "Product:"
       field2 = "Brand:"

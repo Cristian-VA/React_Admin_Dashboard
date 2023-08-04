@@ -6,15 +6,16 @@ import AddModal from '../Components/AddModal';
 import { useQuery } from "@tanstack/react-query"
 
 
-const UsersContainer = styled.div`
+const ProductsContainer = styled.div`
  color: #374151;
  margin: 2em 1.4em;
+ min-height: 80vh;
  
 `
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90,   type:"number" },
+  { field: 'id', headerName: 'ID', width: 90,   type:"number", headerClassName: 'text-sky-600 text-lg', },
   {
-    field:"avatar", headerName: "Avatar", width: 100,   type:"string",
+    field:"avatar", headerName: "Avatar", width: 100,   type:"string", headerClassName: 'text-sky-600 text-lg',
     renderCell: (params) =>{
       return <img className='w-12 h-12 p-2 rounded-full object-cover' src={params.row.img || "../src/images/userboxProfiles/anonImage.jpg"} alt=""/>
     }
@@ -24,14 +25,16 @@ const columns: GridColDef[] = [
     headerName: 'Title',
     width: 170,
     editable: true,
-    type:"string"
+    type:"string",
+    headerClassName: 'text-sky-600 text-lg',
   },
   {
     field: 'Brand',
     headerName: 'Brand',
     width: 170,
     editable: true,
-    type:"string"
+    type:"string",
+    headerClassName: 'text-sky-600 text-lg',
   },
   {
     field: 'price',
@@ -39,6 +42,7 @@ const columns: GridColDef[] = [
     width: 170,
     editable: true,
     type:"any",
+    headerClassName: 'text-sky-600 text-lg',
   },
   {
     field: 'inStock',
@@ -46,6 +50,7 @@ const columns: GridColDef[] = [
     width: 170,
     editable: true,
     type:"boolean",
+    headerClassName: 'text-sky-600 text-lg',
   },
   {
     field: 'createdAt',
@@ -53,6 +58,8 @@ const columns: GridColDef[] = [
     width: 170,
     editable: true,
     type:"string",
+    headerClassName: 'text-sky-600 text-lg',
+    
   },
   
 ];
@@ -73,20 +80,22 @@ export default function Products() {
       ),
   })
 
-    console.log(data)
+    
 
   return (
-    <UsersContainer>
+    <ProductsContainer>
       <div className='flex gap-10 my-5'>
           <h1 className='text-4xl'>Products</h1>
-          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-gray-500 font-semibold transition hover:bg-gray-600 hover:text-gray-100 hover:opacity-80'> Add New Product</button>
+          <button onClick={()=> setOpen(true)} className='my-auto bg-white px-4 py-2 border-2 border-sky-500 font-semibold transition hover:bg-sky-600 hover:text-gray-100 hover:opacity-80'> Add New Product</button>
       </div>
 
       {isLoading? "loading": (
+        // @ts-ignore
       <DatagridTable
        columnData={columns}
        rowData={data}
-       category = "products"/>
+       category = "products"
+       />
       )
       }
 
@@ -98,6 +107,6 @@ export default function Products() {
        title="Product"
        />
        : ""}
-    </UsersContainer>
+    </ProductsContainer>
   )
 }

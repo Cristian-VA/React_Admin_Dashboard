@@ -10,10 +10,17 @@ flex-direction: column;
 
 
 
+type props = {
+    
+  title: string
+  dimensions: string
+  anchor: boolean
+  link: string
+  chartData: object[]
+}
 
 
-
-export default function LineChartContainer(props:any) {
+export default function LineChartContainer(props:props) {
   return (
     <StackedBox>
       {props.anchor? (

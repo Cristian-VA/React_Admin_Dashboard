@@ -63,7 +63,7 @@ const data = [
 const mapData = data.map(item => {
     return (
         <Link key={item.id} to={`/users/${item.id}`}>
-        <div  className='pl-5 pr-2 flex justify-between my-8'>
+        <div  className='px-8 flex justify-between my-8'>
         <div className='flex gap-4'>
              <img className='rounded-full w-14 h-14' src={item.img} alt="" />
             
@@ -73,7 +73,7 @@ const mapData = data.map(item => {
             </div>
         </div>
         
-        <h1 className='my-auto font-semibold text-lg'>${item.amount}</h1>
+        <h1 className='my-auto font-semibold text-lg text-sky-500'>${item.amount}</h1>
     </div>
     </Link>
     )
@@ -81,12 +81,13 @@ const mapData = data.map(item => {
 
 export default function UserBox() {
   return (
-    <UserBoxContainer className='text-gray-600 '>
-    <h1 className='text-2xl'>Top Customers</h1>
+    <div className='text-gray-600 '>
+    <h1 className='text-2xl px-4 text-sky-50 bg-sky-500 p-2 mb-4 rounded-t-lg shadow-md'>Top Customers</h1>
 
-    {mapData}
-
-
+    <UserBoxContainer>
+      {mapData}
     </UserBoxContainer>
+
+    </div>
   )
 }

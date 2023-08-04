@@ -2,21 +2,28 @@ import React from 'react'
 import { Accordion } from '@mui/material'
 import {AccordionSummary, AccordionDetails} from '@mui/material'
 import {FaAngleDown} from "react-icons/fa6"
+import styled from "styled-components"
 
 export default function FAQ() {
+
+    const FAQContainer = styled.div`
+    min-height: 80vh;
+    margin: 2em 1.4em;
+    `
+
   return (
-    <div className='mx-4'>
+    <FAQContainer>
         <h1 className='text-4xl my-5'> FAQ</h1>
         
         
         <Accordion  
         sx={{
-            background: "#ecfdf5",
+            background: "#e0f2fe",
             margin: "0 0 1em",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
         }}>
-        <AccordionSummary  expandIcon={<FaAngleDown className="text-emerald-700"/>} className='bg-emerald-100'>
-        <h1 className='text-emerald-700 font-semibold '>How do I add new products to the website through the admin panel?</h1>
+        <AccordionSummary  expandIcon={<FaAngleDown className="text-sky-700"/>} className='bg-sky-100'>
+        <h1 className='text-sky-700 font-semibold '>How do I add new products to the website through the admin panel?</h1>
         </AccordionSummary>
         <AccordionDetails>
             <h1 className='text-gray-600  font-semibold'>Answer: To add new products navigate to the "Products" section, and click on "Add New Product." Fill in the required details such as product name, description, price, and upload images before saving the changes. However this function is in testing stages</h1>
@@ -25,12 +32,12 @@ export default function FAQ() {
 
         <Accordion  
         sx={{
-            background: "#ecfdf5",
+            background: "#e0f2fe",
             margin: "0 0 1em",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
         }}>
-        <AccordionSummary  expandIcon={<FaAngleDown className="text-emerald-700"/>} className='bg-emerald-100'>
-        <h1 className='text-emerald-700 font-semibold'>How can I manage the inventory for the headphones and speakers available in the store?</h1>
+        <AccordionSummary  expandIcon={<FaAngleDown className="text-sky-700"/>} className='bg-sky-100'>
+        <h1 className='text-sky-700 font-semibold'>How can I manage the inventory for the headphones and speakers available in the store?</h1>
         </AccordionSummary>
         <AccordionDetails>
             <h1 className='text-gray-600  font-semibold'>Answer: To manage inventory, go to the "Products" section in the admin panel. Here, you can view the current stock of the product and user interaction</h1>
@@ -67,12 +74,12 @@ export default function FAQ() {
 
         <Accordion  
         sx={{
-            background: "#e0e7ff",
+            background: "#e0f2fe",
             margin: "0 0 1em",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
         }}>
-        <AccordionSummary  expandIcon={<FaAngleDown className="text-indigo-700"/>} className='bg-indigo-100'>
-        <h1 className='text-indigo-700 font-semibold'>How do I process supplier orders and view order details using the admin panel?</h1>
+        <AccordionSummary  expandIcon={<FaAngleDown className="text-sky-700"/>} className='bg-sky-100'>
+        <h1 className='text-sky-700 font-semibold'>How do I process supplier orders and view order details using the admin panel?</h1>
         </AccordionSummary>
         <AccordionDetails>
             <h1 className='text-gray-600 font-semibold'>Answer: Orders can be processed in the "Orders" section of the admin panel. Here, you can view and manage all supplier orders and track shipment details.</h1>
@@ -81,18 +88,18 @@ export default function FAQ() {
 
         <Accordion  
         sx={{
-            background: "#e0e7ff",
+            background: "#e0f2fe",
             margin: "0 0 1em",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
         }}>
-        <AccordionSummary  expandIcon={<FaAngleDown className="text-indigo-700"/>} className='bg-indigo-100'>
-        <h1 className='text-indigo-700 font-semibold'>Is it possible to export sales and product data to analyze outside the admin panel?</h1>
+        <AccordionSummary  expandIcon={<FaAngleDown className="text-sky-700"/>} className='bg-sky-100'>
+        <h1 className='text-sky-700 font-semibold'>Is it possible to export sales and product data to analyze outside the admin panel?</h1>
         </AccordionSummary>
         <AccordionDetails>
             <h1 className='text-gray-600  font-semibold'>Answer: Yes, the MUI datagrid allows you to export sales and product data in various formats, such as CSV or Excel. By exporting this data, you can perform in-depth analysis using external tools and spreadsheets.</h1>
         </AccordionDetails>
         </Accordion>
         
-    </div>
+    </FAQContainer>
   )
 }

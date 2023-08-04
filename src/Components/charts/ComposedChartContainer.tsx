@@ -22,10 +22,19 @@ flex-direction: column;
 
 
 
+type props = {
+    
+  title: string
+  chartData: object[]
+  dimensions: string
+  anchor: boolean
+  link: string
+ 
+
+}
 
 
-
-export default function ScatterChartContainer(props:any) {
+export default function ScatterChartContainer(props:props) {
   return (
     <ScatterBox>
       {props.anchor? (

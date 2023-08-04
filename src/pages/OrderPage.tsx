@@ -15,11 +15,12 @@ export default function OrderPage() {
       ),
   })
 
-  console.log(data)
+  
 
   return (
     <div>
       {isLoading? "Loading": (
+        // @ts-ignore
         <SinglePage
       field1 = "Suplier:"
       field2 = "Order Number:"

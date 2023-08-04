@@ -12,7 +12,7 @@ display: grid;
 gap: 1.5em;
 grid-template-columns: 1fr 1fr 1fr 1fr;
 grid-auto-rows: minmax(180px, auto);
-margin: 0.8em 0;
+
 
 `
 
@@ -34,6 +34,7 @@ const Box9 = styled.div`
 
 export default function Home() {
   return (
+    
     <HomeStyle>
 
       <div className='p-4 rounded-lg bg-red-300 shadow-md'> 
@@ -81,37 +82,44 @@ export default function Home() {
         />
       </div>
 
-      <Box5 className='p-4 rounded-lg bg-white shadow-md'> 
+      <Box5 className=' rounded-lg bg-white shadow-md'> 
          <UserBox/>
       </Box5>
 
-      <div className='p-4 rounded-lg bg-white shadow-md'> 
+      <div className=' rounded-lg bg-white shadow-md'> 
       <BarChartContainer
       title = "Visits per Day (Last Week)"
       fill = "#6ee7b7"
       dataKey = "Visits"
       chartData= {BarDataVisits}
-      height = "h-32"
+      height = "h-36"
+      anchor =  {false}
+      link = ""
       />
       </div>
 
-    <div className='p-4 rounded-lg bg-white shadow-md'>
+    <div className=' rounded-lg bg-white shadow-md'>
     <BarChartContainer
     title = "Profit earned (Per Month)"
     fill = "#a5b4fc"
     dataKey = "Profit"
     chartData= {BarDataProfits}
-    height = "h-32"
+    height = "h-36"
+    anchor =  {false}
+      link = ""
     />
     </div>
 
-      <Box8 className='p-4 rounded-lg bg-white shadow-md'> 
+      <Box8 className='rounded-lg bg-white shadow-md'> 
        <PieCahtContainer
        dimensions= "w-96 h-96"
-       data= {pieData}/>
+       data= {pieData}
+       anchor =  {false}
+       link = ""/>
+       
       </Box8>
 
-      <Box9 className='p-4 rounded-lg bg-white shadow-md'> 
+      <Box9 className=' rounded-lg bg-white shadow-md'> 
       
       <BigChartContainer
       chartData={BigChartData}
@@ -119,13 +127,14 @@ export default function Home() {
       dataKey = "Headphones"
       dataKey2 = "Speakers"
       dataKey3 = "SoundBars"
-      dimensions= "h-72 w-full"
+      dimensions= "h-72 w-full  mt-4"
       anchor = {false}
       link = ""
       />
       </Box9>
 
     </HomeStyle>
+    
   )
 }
 

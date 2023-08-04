@@ -1,30 +1,29 @@
-import React from 'react'
-import {FaUserAlt, FaHome, FaShoppingCart, FaClipboardList, FaPenSquare, FaBorderAll, FaStickyNote, FaWpforms, FaCalendarAlt, FaServer, } from "react-icons/fa";
-import { FaGear, FaChartSimple, FaPen } from "react-icons/fa6"
+
+import {FaUserAlt, FaHome, FaShoppingCart, FaClipboardList, FaPenSquare, FaCalendarAlt, FaQuestionCircle  } from "react-icons/fa";
+import {  FaChartSimple, FaPen } from "react-icons/fa6"
 import styled from "styled-components"
 import { NavLink } from 'react-router-dom';
 
 const SideMenuEl = styled.div`
 padding: 0px;
-`
-const TitleDiv = styled.div`
- padding: 0.75rem 1.25rem;
- color: rgb(161 161 170);
- background-color: #313135;
- font-weight: 600;
+min-height:94.6vh;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+max-height: 200vh;
 `
 
-const notActive = "flex px-5 py-3 text-zinc-400 text-sm  gap-2 transition hover:bg-zinc-800 cursor-pointer"
-const active = "bg-zinc-800 flex px-5 py-3 text-zinc-400 text-sm  gap-2 transition cursor-pointer"
+const active =  "flex px-6 py-5 text-sky-500 text-sm font-semibold gap-2 transition-all cursor-pointer"
+const notActive = "flex px-6 py-5 text-gray-700 text-sm font-semibold gap-2 transition hover:bg-sky-100 cursor-pointer"
+
 
 export default function SideMenu() {
   return (
     <SideMenuEl>
 
-    <TitleDiv> 
-      <h1>Main</h1>
-    </TitleDiv>
-
+     <div className='flex gap-2 sm:gap-4 flex-col  p-4'>
+        <img className="w-24 h-24 my-auto block mx-auto rounded-full shadow-md border-sky-200  border-2"src="../src/images/Logo 300.png" alt="" />
+        <h1 className='text-md sm:text-xl md:text-xl font-semibold my-auto text-gray-700 px-2 pt-8'> SalesBoard  <span className="text-sky-500 border-gray-600 border-b-2"> UI</span> </h1>
+      </div>
+    
     <NavLink to="/"
     className= {({isActive}) => isActive ? active : notActive }>
       <FaHome className="my-auto w-5 h-5"/>
@@ -33,14 +32,7 @@ export default function SideMenu() {
 
  
 
-    <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-      <FaUserAlt className="my-auto w-5 h-5"/>
-      <h1 className='my-auto'> Profile</h1>
-    </div>
-
-    <TitleDiv> 
-      <h1>Lists</h1>
-    </TitleDiv>
+   
 
           <NavLink to="/users"
            className= {({isActive}) => isActive ? active : notActive }>      
@@ -68,50 +60,16 @@ export default function SideMenu() {
 
     
 
-    <TitleDiv> 
-      <h1>General</h1>
-    </TitleDiv>
-
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaBorderAll className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Elements</h1>
-          </div>
-
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaStickyNote className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Notes</h1>
-          </div>
-
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaWpforms className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Forms</h1>
-          </div>
+    
 
           <NavLink to="/calendar"
            className= {({isActive}) => isActive ? active : notActive }>
             <FaCalendarAlt className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Calendars</h1>
+            <h1 className='my-auto'> Calendar</h1>
             </NavLink>
 
     
-    <TitleDiv> 
-      <h1>Maintenance</h1>
-    </TitleDiv>
-
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaGear className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Settings</h1>
-          </div>
-
-
-          <div className='flex px-5 py-3 text-zinc-400 text-sm gap-2 transition hover:bg-zinc-800 cursor-pointer'>
-            <FaServer className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Backup</h1>
-          </div>
-
-    <TitleDiv> 
-      <h1>Analytics</h1>
-    </TitleDiv>
+   
           
           <NavLink to="/charts"
            className= {({isActive}) => isActive ? active : notActive }>
@@ -121,8 +79,8 @@ export default function SideMenu() {
 
             <NavLink to="/FAQ"
            className= {({isActive}) => isActive ? active : notActive }>
-            <FaPen className="my-auto w-5 h-5"/>
-            <h1 className='my-auto'> Logs</h1>
+            <FaQuestionCircle className="my-auto w-5 h-5"/>
+            <h1 className='my-auto'> FAQ</h1>
             </NavLink>
     
     </SideMenuEl>

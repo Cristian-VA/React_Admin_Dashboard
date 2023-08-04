@@ -9,12 +9,22 @@ justify-content: space-between;
 flex-direction: column;
 `
 
+type props = {
+    
+  title: string
+  height: string
+  dataKey: string
+  chartData: object[]
+  anchor: boolean
+  link: string
+  fill: string
+
+}
 
 
 
 
-
-export default function BarChartContainer(props:any) {
+export default function BarChartContainer(props:props) {
   return (
     <BarBox>
       {props.anchor? (
@@ -28,7 +38,7 @@ export default function BarChartContainer(props:any) {
               
               </a>
         </div>
-      ) : <h1 className='text-lg text-center text-gray-600 p-1'>{props.title}</h1> }
+      ) : <h1 className='text-lg text-center text-sky-50 bg-sky-500 p-2 mb-4 rounded-t-lg shadow-md'>{props.title}</h1> }
       
    
 

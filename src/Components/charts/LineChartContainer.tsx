@@ -10,11 +10,21 @@ flex-direction: column;
 `
 
 
+type props = {
+    
+  title: string
+  dimensions: string
+  anchor: boolean
+  link: string
+  chartdata: object[]
+  datakey1: string
+  datakey2: string
+}
 
 
 
 
-export default function LineChartContainer(props:any) {
+export default function LineChartContainer(props:props) {
   return (
     <LineBox>
       {props.anchor? (

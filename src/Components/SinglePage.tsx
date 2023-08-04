@@ -92,12 +92,35 @@ type Props ={
     datakeys: {name:string, color: string}
     data: object[]
   }
-  activies?: {time: string; text:string}
+  activities: any
+  type: string
+  field1: string
+  field1Info: string
+
+  field15: string
+  field15Info: string
+
+  field2: string
+  field2Info: string
+
+  field3: string
+  field3Info: string
+
+  field4: string
+  field4Info: string
+
+  field5: string
+  field5Info: string
+
+  chartdata: object[]
+
+  datakey1: string
+  datakey2: string
 }
 
 
 
-export default function SinglePage(props:any) {
+export default function SinglePage(props:Props) {
 
  const ActivityFeedActions = props.activities?.map((item:any) =>{
   return (

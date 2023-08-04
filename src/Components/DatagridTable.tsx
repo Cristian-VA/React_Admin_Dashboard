@@ -6,7 +6,16 @@ import { useQueryClient, useMutation } from '@tanstack/react-query';
 
 
 
-export default function DatagridTable(props:any) {
+type props = {
+  title:string
+  category: string
+  noView: boolean
+  columnData: any
+  rowData: any
+
+}
+
+export default function DatagridTable(props:props) {
 
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -31,6 +40,7 @@ export default function DatagridTable(props:any) {
   
     field: 'actions',
     headerName: 'Actions',
+    headerClassName: 'text-sky-600 text-lg',
     width: 120,
     renderCell: (params) =>{
       return (

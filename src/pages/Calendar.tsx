@@ -5,14 +5,13 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
 import { formatDate } from '@fullcalendar/core'
-import { useQuery } from "@tanstack/react-query"
 import {
   List,
   ListItem,
   ListItemText,
 } from "@mui/material";
 import styled from "styled-components"
-import CalendarModal from "../Components/CalendarModal.tsx"
+
 
 const CalendarContainer = styled.div`
 margin: 2em 1.4em;

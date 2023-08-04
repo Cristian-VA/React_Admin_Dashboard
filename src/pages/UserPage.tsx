@@ -15,11 +15,12 @@ export default function UserPage() {
       ),
   })
 
-  console.log(data?.chart?.dataKeys[0]?.name)
+ 
 
   return (
     <div>
       {isLoading? "Loading": (
+        // @ts-ignore
         <SinglePage
         field1 = "Username:"
         field2 = "Fullname:"

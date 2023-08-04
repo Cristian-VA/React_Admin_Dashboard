@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styled from "styled-components"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { FaCode } from "react-icons/fa"
@@ -38,7 +38,7 @@ export default function BigChartContainer(props:props) {
               
               </a>
         </div>
-      ) : <h1 className='text-lg text-center text-gray-600 p-1'>{props.title}</h1> }
+      ) : <h1 className='text-xl px-4 text-center text-sky-50 bg-sky-500 p-2 mb-4 rounded-t-lg shadow-md'>{props.title}</h1> }
 
        <div className={props.dimensions}>
         <ResponsiveContainer width="100%" height="100%">
