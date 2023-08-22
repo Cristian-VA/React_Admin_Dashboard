@@ -1,5 +1,5 @@
-import React from 'react'
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+
+import { PieChart, Pie,  Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import styled, {keyframes} from "styled-components"
 import { FaCode } from "react-icons/fa"
 

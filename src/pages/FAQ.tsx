@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Accordion } from '@mui/material'
 import {AccordionSummary, AccordionDetails} from '@mui/material'
 import {FaAngleDown} from "react-icons/fa6"

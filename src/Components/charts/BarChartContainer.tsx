@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { BarChart, Bar,  Tooltip,  ResponsiveContainer } from 'recharts';
 import styled from "styled-components"
 import { FaCode } from "react-icons/fa"

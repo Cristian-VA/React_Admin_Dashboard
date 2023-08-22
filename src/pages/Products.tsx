@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import DatagridTable from '../Components/DatagridTable'
-import { DataGrid, GridColDef, GridValueGetterParams, GridToolbar } from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid';
 import AddModal from '../Components/AddModal';
 import { useQuery } from "@tanstack/react-query"
 

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styled, {keyframes} from "styled-components"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { FaCheck } from "react-icons/fa"

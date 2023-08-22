@@ -1,4 +1,4 @@
-import React from 'react'
+
 import SinglePage from '../Components/SinglePage'
 import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"

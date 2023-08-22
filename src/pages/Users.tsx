@@ -12,9 +12,9 @@ const UsersContainer = styled.div`
  min-height: 80vh;
 `
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90,   type:"number", headerClassName: 'text-sky-600 text-lg' },
+  { field: 'id', headerName: 'ID', width: 20,   type:"number", headerClassName: 'text-sky-600 text-lg' },
   {
-    field:"avatar", headerName: "Avatar", width: 100,   type:"string", headerClassName: 'text-sky-600 text-lg',
+    field:"avatar", headerName: "Avatar", width: 70,   type:"string", headerClassName: 'text-sky-600 text-lg',
     renderCell: (params) =>{
       return <img className='w-12 h-12 p-2 rounded-full object-cover' src={params.row.img || "../src/images/userboxProfiles/anonImage.jpg"} alt=""/>
     }
@@ -22,7 +22,7 @@ const columns: GridColDef[] = [
   {
     field: 'firstName',
     headerName: 'First name',
-    width: 170,
+    width: 130,
     editable: true,
     type:"string",
     headerClassName: 'text-sky-600 text-lg'
@@ -30,7 +30,7 @@ const columns: GridColDef[] = [
   {
     field: 'lastName',
     headerName: 'Last name',
-    width: 170,
+    width: 130,
     editable: true,
     type:"string",
     headerClassName: 'text-sky-600 text-lg'
@@ -41,7 +41,7 @@ const columns: GridColDef[] = [
     description: 'This column has a value getter and is not sortable.',
     type:"string",
     headerClassName: 'text-sky-600 text-lg',
-    width: 180,
+    width: 140,
     valueGetter: (params: GridValueGetterParams) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },

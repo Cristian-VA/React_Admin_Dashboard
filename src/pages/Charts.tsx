@@ -1,6 +1,5 @@
 import styled from "styled-components"
-import UserBox from '../Components/UserBox'
-import Chart from '../Components/charts/Chart'
+
 import BarChartContainer from '../Components/charts/BarChartContainer'
 import PieCahtContainer from '../Components/charts/PieChartContainer'
 import BigChartContainer from '../Components/charts/AreaChartContainer'

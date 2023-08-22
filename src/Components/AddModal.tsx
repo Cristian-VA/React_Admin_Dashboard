@@ -1,9 +1,9 @@
-import React from 'react'
+
 import styled from "styled-components"
 import {FaWindowClose} from "react-icons/fa"
 import { BsFillSendFill } from "react-icons/bs"
 import { useQueryClient, useMutation } from '@tanstack/react-query';
-import { GridColDef } from '@mui/x-data-grid';
+
 const AddModalContainer = styled.div`
 width: 99vw;
 height: 100vh;

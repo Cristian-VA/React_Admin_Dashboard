@@ -1,6 +1,6 @@
 
 import {FaUserAlt, FaHome, FaShoppingCart, FaClipboardList, FaPenSquare, FaCalendarAlt, FaQuestionCircle  } from "react-icons/fa";
-import {  FaChartSimple, FaPen } from "react-icons/fa6"
+import {  FaChartSimple } from "react-icons/fa6"
 import styled from "styled-components"
 import { NavLink } from 'react-router-dom';
 

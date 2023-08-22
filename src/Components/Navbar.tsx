@@ -1,5 +1,4 @@
-import React from 'react'
-import {FaSearch, FaBell, FaSignOutAlt} from "react-icons/fa";
+
 
 import styled from "styled-components"
 
