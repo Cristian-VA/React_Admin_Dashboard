@@ -81,7 +81,7 @@ export default function Orders() {
   const { isLoading , data } = useQuery({
        queryKey: ["allorders"],
        queryFn: () =>
-         fetch("http://localhost:3000/api/orders").then(
+         fetch("https://serv-sqgi.onrender.com/api/orders").then(
            (res) => res.json()
          ),
      })

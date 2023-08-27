@@ -10,7 +10,7 @@ export default function OrderPage() {
   const { isLoading , data } = useQuery({
     queryKey: ["allorders"],
     queryFn: () =>
-      fetch(`http://localhost:3000/api/orders/${params.id}`).then(
+      fetch(`https://serv-sqgi.onrender.com/api/orders/${params.id}`).then(
         (res) => res.json()
       ),
   })

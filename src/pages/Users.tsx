@@ -16,7 +16,7 @@ const columns: GridColDef[] = [
   {
     field:"avatar", headerName: "Avatar", width: 70,   type:"string", headerClassName: 'text-sky-600 text-lg',
     renderCell: (params) =>{
-      return <img className='w-12 h-12 p-2 rounded-full object-cover' src={params.row.img || "../src/images/userboxProfiles/anonImage.jpg"} alt=""/>
+      return <img className='w-12 h-12 p-2 rounded-full object-cover' src={params.row.img || "../Images/userboxProfiles/anonImage.jpg"} alt=""/>
     }
   },
   {
@@ -90,7 +90,7 @@ export default function Users() {
   const { isLoading , data } = useQuery({
        queryKey: ["allusers"],
        queryFn: () =>
-         fetch("http://localhost:3000/api/users").then(
+         fetch("https://serv-sqgi.onrender.com/api/users").then(
            (res) => res.json()
          ),
      })

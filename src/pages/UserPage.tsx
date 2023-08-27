@@ -10,7 +10,7 @@ export default function UserPage() {
   const { isLoading , data } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch(`http://localhost:3000/api/users/${params.id}`).then(
+      fetch(`https://serv-sqgi.onrender.com/api/users/${params.id}`).then(
         (res) => res.json()
       ),
   })

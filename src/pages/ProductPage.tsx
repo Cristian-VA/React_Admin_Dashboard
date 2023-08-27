@@ -10,7 +10,7 @@ export default function ProductPage() {
   const { isLoading , data } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch(`http://localhost:3000/api/products/${params.id}`).then(
+      fetch(`https://serv-sqgi.onrender.com/api/products/${params.id}`).then(
         (res) => res.json()
       ),
   })

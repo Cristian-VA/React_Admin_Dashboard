@@ -72,7 +72,7 @@ export default function Posts() {
   const { isLoading , data } = useQuery({
        queryKey: ["allposts"],
        queryFn: () =>
-         fetch("http://localhost:3000/api/posts").then(
+         fetch("https://serv-sqgi.onrender.com/api/posts").then(
            (res) => res.json()
          ),
      })

@@ -18,42 +18,42 @@ animation: 1.2s ${fadeIn} ease-in;
 const data = [
     {
         id: 1,
-        img: "../src/images/userboxProfiles/female4.jpg",
+        img: "../Images/userboxProfiles/female4.jpg",
         userName: "Kate brown",
         email: "brownk@gmail.com",
         amount: "4,122"
     },
     {
         id: 2,
-        img: "../src/images/userboxProfiles/femaleP1.jpg",
+        img: "../Images/userboxProfiles/femaleP1.jpg",
         userName: "Beth Williams",
         email: "BethWilliams5@gmail.com",
         amount: "4,012"
     },
     {
         id: 3,
-        img: "../src/images/userboxProfiles/femaleP2.jpg",
+        img: "../Images/userboxProfiles/femaleP2.jpg",
         userName: "Megan Allen",
         email: "Allen123@gmail.com",
         amount: "3,920"
     },
     {
         id: 4,
-        img: "../src/images/userboxProfiles/Male2.jpg",
+        img: "../Images/userboxProfiles/Male2.jpg",
         userName: "Thomas Abney",
         email: "TomAbney94@gmail.com",
         amount: "3,913"
     },
     {
         id: 5,
-        img: "../src/images/userboxProfiles/male3.jpg",
+        img: "../Images/userboxProfiles/male3.jpg",
         userName: "Phil Green",
         email: "Philgreen96@gmail.com",
         amount: "3,820"
     },
     {
         id: 6,
-        img: "../src/images/userboxProfiles/MaleProfile1.jpg",
+        img: "../Images/userboxProfiles/MaleProfile1.jpg",
         userName: "Ryan Elliot",
         email: "elliot123@gmail.com",
         amount: "3,789"

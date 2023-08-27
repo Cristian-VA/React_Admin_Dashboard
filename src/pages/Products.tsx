@@ -75,7 +75,7 @@ export default function Products() {
   const { isLoading , data } = useQuery({
     queryKey: ["allproducts"],
     queryFn: () =>
-      fetch("http://localhost:3000/api/products").then(
+      fetch("https://serv-sqgi.onrender.com/api/products").then(
         (res) => res.json()
       ),
   })

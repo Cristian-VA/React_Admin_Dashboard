@@ -20,7 +20,7 @@ export default function SideMenu() {
     <SideMenuEl>
 
      <div className='flex gap-2 sm:gap-4 flex-col  p-4'>
-        <img className="w-24 h-24 my-auto block mx-auto rounded-full shadow-md border-sky-200  border-2"src="../src/images/Logo 300.png" alt="" />
+        <img className="w-24 h-24 my-auto block mx-auto rounded-full shadow-md border-sky-200  border-2"src="../Images/Logo 300.png" alt="" />
         <h1 className='text-md sm:text-xl md:text-xl font-semibold my-auto text-gray-700 px-2 pt-8'> SalesBoard  <span className="text-sky-500 border-gray-600 border-b-2"> UI</span> </h1>
       </div>
     
